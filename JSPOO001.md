@@ -118,4 +118,37 @@ function Estudiante(nombre,correo){
 let estudiante1 = new Estudiante('Fabrizio','avbar357159@gmail.com')
 let estudiante2 = new Estudiante('Juan','faracogu@gmail.com')
 ```
-Se creo la funcion constructor, que en este caso tendra el nombre de la clase (Estudiante), ya que no usaremos la palabra `class`, este contructor representa nuestra clase Estudiante. Luego le agregamos los atributos y los métodos.
+Se creo la funcion constructor, que en este caso tendra el nombre de la clase (Estudiante), ya que no usaremos la palabra `class`, este contructor representa nuestra clase Estudiante. Luego le agregamos los atributos y los métodos.  
+
+Algo que debemos saber es que todo objeto hereda propiedades y métodos de un prototipo, es decir, JavaScript esta basado en prototipos.
+Respecto a herencia, un objeto posee un prototipo, y este prototipo a su vez tiene su prototipo, y así sucesivamente. `Object.prototype` esta arriba de la cadena de herencia de prototipos.
+### Herencia de prototipos
+Todo objeto hereda propiedades y métodos de un prototipo (Array hereda de `Array.prototype`o un objeto Carro, esta hereda de `Carro.prototype`) y todos estos heredan el prototipo `Object.prototype.
+
+Con esto de los prototipos, podemos agregar nuevas propiedades y/o métodos a un objeto constructor o a todos los objetos existentes de un tipo dado.
+- Agregar nuevas propiedades a objetos constructores
+    ```JavaScript
+    function Estudiante(nombre,correo){
+        this.nombre = nombre
+        this.correo = correo
+        this.conectado = false
+    }
+    Estudiante.prototype.idioma = 'español'
+    let estudiante1 = new Estudiante('Fabrizio','avbar357159@gmail.com')
+    console.log(Estudiante.idioma)
+    ```
+
+- Agregar nuevas métodos a objetos constructores.
+```JavaScript
+function Estudiante(nombre,correo){
+    this.nombre = nombre
+    this.correo = correo
+    this.conectado = false
+}
+Estudiante.prototype.conectar = function(){
+    return `${this.correo} se ha conectado`
+}
+let estudiante1 = new Estudiante('Fabrizio','avbar357159@gmail.com')
+console.log(estudiante1.conectar())
+```
+Nota: es recomendable modificar solo tus propios prototipos, no los objetos que vienen incorporados dentro de JavaScript.

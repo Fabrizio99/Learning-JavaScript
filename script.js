@@ -116,8 +116,7 @@ let estudiante1 = new Estudiante('Fabrizio','avbar357159@gmail.com')
 estudiante1.conectar().actualizarNota().actualizarNota().desconectar()*/
 
 //prototipo - constructor
-
-function Estudiante(nombre,correo){
+/*function Estudiante(nombre,correo){
     this.nombre = nombre
     this.correo = correo
     this.conectado = false
@@ -126,4 +125,26 @@ function Estudiante(nombre,correo){
     }
 }
 let estudiante1 = new Estudiante('Fabrizio','avbar357159@gmail.com')
-let estudiante2 = new Estudiante('Juan','faracogu@gmail.com')
+let estudiante2 = new Estudiante('Juan','faracogu@gmail.com')*/
+
+//prototipos
+//añadiendo propiedades 
+/*function Estudiante(nombre,correo){
+    this.nombre = nombre
+    this.correo = correo
+    this.conectado = false
+}
+Estudiante.prototype.idioma = 'español'
+let estudiante1 = new Estudiante('Fabrizio','avbar357159@gmail.com')
+console.log(Estudiante.idioma)*/
+//añadiendo métodos
+function Estudiante(nombre,correo){
+    this.nombre = nombre
+    this.correo = correo
+    this.conectado = false
+}
+Estudiante.prototype.conectar = function(){
+    return `${this.correo} se ha conectado`
+}
+let estudiante1 = new Estudiante('Fabrizio','avbar357159@gmail.com')
+console.log(estudiante1.conectar())
