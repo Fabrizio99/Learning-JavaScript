@@ -1,2 +1,2 @@
 # Learning-JavaScript
-This section is focused on everything which is involved to learn JavaScript.
+this repository will be focused on learning JavaScript from zero.
