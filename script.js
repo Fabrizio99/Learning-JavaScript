@@ -161,6 +161,8 @@ let carro1 = {
 }
 console.log(carro.conducir.apply(carro1,['rojo','Lima']))
 
+
+//Herencia en prototipos
 function User(nombre, edad){
     this.nombre = nombre
     this.edad = edad
