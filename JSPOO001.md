@@ -111,9 +111,6 @@ function Estudiante(nombre,correo){
     this.nombre = nombre
     this.correo = correo
     this.conectado = false
-    this.conectar = function(){
-        console.log(`${this.correo}, se ha conectado`)
-    }
 }
 let estudiante1 = new Estudiante('Fabrizio','avbar357159@gmail.com')
 let estudiante2 = new Estudiante('Juan','faracogu@gmail.com')
@@ -122,11 +119,11 @@ Se creo la funcion constructor, que en este caso tendra el nombre de la clase (E
 
 Algo que debemos saber es que todo objeto hereda propiedades y métodos de un prototipo, es decir, JavaScript esta basado en prototipos.
 Respecto a herencia, un objeto posee un prototipo, y este prototipo a su vez tiene su prototipo, y así sucesivamente. `Object.prototype` esta arriba de la cadena de herencia de prototipos.
-### Herencia de prototipos
+### Prototipos
 Todo objeto hereda propiedades y métodos de un prototipo (Array hereda de `Array.prototype`o un objeto Carro, esta hereda de `Carro.prototype`) y todos estos heredan el prototipo `Object.prototype.
 
 Con esto de los prototipos, podemos agregar nuevas propiedades y/o métodos a un objeto constructor o a todos los objetos existentes de un tipo dado.
-- Agregar nuevas propiedades a objetos constructores
+- Agregar nuevas propiedades a constructores de objetos.
     ```JavaScript
     function Estudiante(nombre,correo){
         this.nombre = nombre
@@ -138,17 +135,93 @@ Con esto de los prototipos, podemos agregar nuevas propiedades y/o métodos a un
     console.log(Estudiante.idioma)
     ```
 
-- Agregar nuevas métodos a objetos constructores.
-```JavaScript
-function Estudiante(nombre,correo){
-    this.nombre = nombre
-    this.correo = correo
-    this.conectado = false
-}
-Estudiante.prototype.conectar = function(){
-    return `${this.correo} se ha conectado`
-}
-let estudiante1 = new Estudiante('Fabrizio','avbar357159@gmail.com')
-console.log(estudiante1.conectar())
-```
+- Agregar nuevas métodos a constructores de objetos.
+    ```JavaScript
+    function Estudiante(nombre,correo){
+        this.nombre = nombre
+        this.correo = correo
+        this.conectado = false
+    }
+    Estudiante.prototype.conectar = function(){
+        return `${this.correo} se ha conectado`
+    }
+    let estudiante1 = new Estudiante('Fabrizio','avbar357159@gmail.com')
+    console.log(estudiante1.conectar())
+    ```
 Nota: es recomendable modificar solo tus propios prototipos, no los objetos que vienen incorporados dentro de JavaScript.
+### Herencia con Prototipos
+Para poder entender herencia con Métodos, primero entendamos los siguientes conceptos:
+- `call()`  
+    Método predefinido en JavaScript, que nos permite nos permite como pasar como parámetro a un objeto, pudiendo ser este método perteneciente a otro objeto.
+    ```JavaScript
+    let carro = {
+        conducir : function(){
+            return `El carro de marca ${this.marca} esta conduciendo`
+        }
+    }
+    let carro1 = {
+        marca : 'Audi',
+        año : '2019'
+    }
+    console.log(carro.conducir.call(carro1))
+    ```
+    Tambien podemos pasale argumentos.
+    ```JavaScript
+    let carro = {
+        conducir : function(color){
+            return `El carro de marca ${this.marca} esta conduciendo, de color ${color}`
+        }
+    }
+    let carro1 = {
+        marca : 'Audi',
+        año : '2019'
+    }
+    console.log(carro.conducir.call(carro1,'rojo'))
+    ```
+- `apply()`
+    Tiene la misma función que el método `call()`, la única diferencia es que al recibir argumentos, este las acepta en un array, no como call() que las acepta por separado.
+    ```JavaScript
+    let carro = {
+        conducir : function(color,ciudad){
+            return `El carro de marca ${this.marca} esta conduciendo, de color ${color} en la ciudad de ${ciudad}`
+        }
+    }
+    let carro1 = {
+        marca : 'Audi',
+        año : '2019'
+    }
+    console.log(carro.conducir.apply(carro1,['rojo','Lima']))
+    ```
+Para poder entender la herencia en prototipos, veamos primero el ejemplo.
+```JavaScript
+function User(nombre, edad){
+    this.nombre = nombre
+    this.edad = edad
+}
+User.prototype.conectar = function(){
+    return `${this.nombre} se ha conectado`
+}
+function Persona(...args){
+    User.apply(this,args)
+}
+Persona.prototype = Object.create(User.prototype)
+Persona.prototype.deleteUser = function(){
+    
+}
+let persona1 = new Persona('Fabrizio',15)
+console.log(persona1)
+let user1 = new User('Pedro',10)
+console.log(user1)
+```
+Dirán, pero que carajos es esto, creanme que a mi me costo tambien entenderlo, pero aqui vamos:
+- Creamos una funcion constructor Administrador, esta haremos que herede de User.
+- El detalle es que no podemos usar la palabra reservada `extends`, ya que lo estamos haciendo en base a prototipos.
+    Creo que la parte más complicada es esta:
+    - Primero pensemos que al instanciar una clase, tenemos que pasarle los parámetros a la funcion constructor, en este caso en la función constructor Administrador, todos los datos que se reciban se almacenaran en `...args` (este es un parámetro rest, nos permite almacenar una cantidad indenfinida de datos en un array), pero como le pasamos esos datos almacenados a los atributos de Administado? como los atributos que tiene Administrador son los mismos que User, entonces haremos que cada objeto que se cree tomará forma de la funcion constructor User, pasandole como argumentos el parametro rest `args`. Practicamente todo lo explicado, se realiza en esta linea de código.
+    ````JavaScript
+    User.apply(this,args)
+    ```
+- Ahora si queremos heredar los método de un prototipo, tenemos que indicar que el prototipo de Administrador va a ser un objeto que se va a crear y que este nuevo objeto este basado en `User.prototype`. Esto es lo que hace:
+```JavaScript
+Administrador.prototype = Object.create(User.prototype)
+```

@@ -138,7 +138,7 @@ Estudiante.prototype.idioma = 'español'
 let estudiante1 = new Estudiante('Fabrizio','avbar357159@gmail.com')
 console.log(Estudiante.idioma)*/
 //añadiendo métodos
-function Estudiante(nombre,correo){
+/*function Estudiante(nombre,correo){
     this.nombre = nombre
     this.correo = correo
     this.conectado = false
@@ -147,4 +147,35 @@ Estudiante.prototype.conectar = function(){
     return `${this.correo} se ha conectado`
 }
 let estudiante1 = new Estudiante('Fabrizio','avbar357159@gmail.com')
-console.log(estudiante1.conectar())
+console.log(estudiante1.conectar())*/
+
+//metodo call()
+let carro = {
+    conducir : function(color,ciudad){
+        return `El carro de marca ${this.marca} esta conduciendo, de color ${color} en la ciudad de ${ciudad}`
+    }
+}
+let carro1 = {
+    marca : 'Audi',
+    año : '2019'
+}
+console.log(carro.conducir.apply(carro1,['rojo','Lima']))
+
+function User(nombre, edad){
+    this.nombre = nombre
+    this.edad = edad
+}
+User.prototype.conectar = function(){
+    return `${this.nombre} se ha conectado`
+}
+function Administrador(...args){
+    User.apply(this,args)
+}
+Administrador.prototype = Object.create(User.prototype)
+Administrador.prototype.deleteUser = function(){
+    
+}
+let admi1 = new Administrador('Fabrizio',15)
+console.log(admi1)
+let user1 = new User('Pedro',10)
+console.log(user1)
