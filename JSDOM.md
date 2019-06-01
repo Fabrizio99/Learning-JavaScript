@@ -14,8 +14,7 @@ Características:
 - Define los eventos de los elementos HTML.
 
 Cuando una página web se carga, el navegador crea el DOM.
-El HTML DOM es construido como un arbol de objetos.
-![imagen arbol](https://www.w3schools.com/js/pic_htmltree.gif)
+
 Lo beneficioso del modelado de objetos, es poder usar JavaScript para crear un HTML dinámico.
 Pudiendose realizar lo siguiente con JavaScript:
 - Cambiar los elementos y atributos de una página.
@@ -28,4 +27,19 @@ Por ejemplo, `getElementById()` es un método que permite acceder a un elemento 
 ### Objeto Document
 El objeto **document** representa un objeto que contiene toda la página web, si deseamos acceder a un elemento del documento HTML debemos empezar accediendo al objeto document.
 ## Nodos
-Se refiere a cada punto e intersección que existe en el arbol del DOM (cuando estamos en el DOM, es preferible decir Nodo en vez de objetos). Un nodo no solo son los elementos del HTML, sino también los atributos y texto del elemento también son nodos.
+Se refiere a cada punto e intersección que existe en el arbol del DOM. Un nodo no solo son los elementos del HTML, sino también los atributos y texto del elemento también son nodos.  
+El DOM es construido por un arbol conformado por nodos.
+![imagen arbol](https://www.w3schools.com/js/pic_htmltree.gif)
+### nodeName
+Indica el nombre del nodo.
+
+### nodeType
+Indica el tipo de nodo, en total existen 12 y para que cada uno sea diferenciado tiene asignado un valor.
+De los 12 tipos de nodos,  solo 4 son los más importantes:
+
+|Nombre|Valor |
+|---|---|
+|ELEMENT_NODE|1|
+|ATTRIBUTE_NODE|2|
+|TEXT_NODE|3|
+|COMMENT_NODE|8|
