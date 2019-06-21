@@ -26,4 +26,47 @@
 
 //orden de importaciones
 // var nombre = "Fabrizio"
-var nombre;
+//var nombre;
+
+//Paso por valor y referencia
+// let x = 1
+// let y = x
+// console.log(x)
+// console.log(y)
+// x=2
+// console.log(x)
+// console.log(y)
+
+// let persona1 = {nombre : "Fabrizio", edad : 20}
+// let persona2 = persona1
+// console.log(persona1)
+// console.log(persona2)
+// persona1.nombre = "Fernando"
+// console.log(persona1)
+// console.log(persona2)
+// persona2.edad = 30
+// console.log(persona1)
+// console.log(persona2)
+
+// Ejercicios de objetos
+let persona = {
+    nombre : "Fabrizio",
+    apellido : "Condori",
+    edad : 20,
+    direccion : {
+        pais : "Peru",
+        departamento : "Lima",
+        distrito : "Centro de Lima"
+    }
+}
+console.log(persona)
+persona.direccion.calle = "Av. Jirón de la Unión"
+console.log(persona)
+let direccion = persona.direccion
+console.log(direccion.pais)
+let campo = "nombre"
+console.log(persona[campo])
+campo = "apellido"
+console.log(persona[campo])
+
+// toda funcion retorna un valor

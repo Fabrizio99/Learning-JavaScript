@@ -1,1 +1,2 @@
-console.log(nombre)
+// Orden de las importaciones
+// console.log(nombre)
