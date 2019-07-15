@@ -42,3 +42,66 @@ console.log(persona2)
 Cuando es por referencia, la variable `persona1` reserva un espacio de memoria para almacenar al objeto literal, y al asignarle a la variable `persona2` el valor de `persona1`. Lo que sucede es que `persona2` ahora esta apuntando al mismo objeto que apunta `persona1`, por eso que cuando se cambia las propiedades del objeto tanto en las variables `persona1` y `persona2`, terminan afectando a ambas.   
 
 Este comportamiento solo lo tienen los objetos.
+### Uso de paso por referencia
+```JavaScript
+let persona = {
+    nombre : "Fabrizio",
+    apellido : "Condori",
+    edad : 20,
+    direccion : {
+        pais : "Peru",
+        departamento : "Lima",
+        distrito : "Centro de Lima"
+    }
+}
+console.log(persona)
+persona.direccion.calle = "Av. Jirón de la Unión"
+console.log(persona)
+let direccion = persona.direccion
+console.log(direccion.pais)
+let campo = "nombre"
+console.log(persona[campo])
+campo = "apellido"
+console.log(persona[campo])
+```
+## Funciones
+Una función es un objeto y siempre retorna un valor.
+```JavaScript
+var miFuncion = function () {
+    return 15
+}
+function alv(fn){
+    console.log(fn())
+}
+alv(miFuncion)
+```
+Funciones con parámetros
+```JavaScript
+function funcion1(){
+    return 'Función 1'
+}
+function funcion1(){
+    console.log('Función 1');
+    return function(mensaje){
+        console.log('Función 2 '+mensaje);
+        return function(){
+            console.log('Entra función 3 ')
+        }
+    }
+}
+funcion1()('alv')()
+```
+Funciones como ciudadanos de primera clase.
+```JavaScript
+// las funciones pueden tener métodos o propiedades.
+function funcion(){
+    console.log("Mensaje de la función")
+}
+funcion.propiedad1 = "Propiedad de la funcion"
+console.log(funcion.propiedad1)
+// algunos propiedades propias de las funciones pueden ser sobreescritas pero otras no
+funcion.name = "qqqqq"
+console.log(funcion.name)
+funcion.apply="aaaa"
+console.log(funcion.apply)
+```
