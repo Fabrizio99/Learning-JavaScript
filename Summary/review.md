@@ -105,3 +105,30 @@ console.log(funcion.name)
 funcion.apply="aaaa"
 console.log(funcion.apply)
 ```
+### Objetos this
+```JavaScript
+var nombre = 'AAAA'
+var apellido = 'BBBB'
+var persona = {
+    nombre : 'Fabrizio',
+    apellido : 'Condori',
+    imprimirDatos : function () {
+        //console.log(nombre+" "+apellido)
+        console.log(this.nombre+" "+this.apellido)
+    },
+    direccion : {
+        pais : 'Peru',
+        obtenerPais : function(){
+            //console.log(this)
+            //console.log('La dirección es '+this.pais)
+            var self = this
+            var nuevaDireccion = function(){
+                console.log(self.pais)
+            }
+            nuevaDireccion()
+        }
+    }
+}
+persona.imprimirDatos()
+persona.direccion.obtenerPais()
+```

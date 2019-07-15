@@ -94,15 +94,42 @@
 //     }
 // }
 // funcion1()('alv')()
+
 // funciones como ciudadanos de primera clase
 // las funciones pueden tener métodos o propiedades.
-function funcion(){
-    console.log("Mensaje de la función")
-}
-funcion.propiedad1 = "Propiedad de la funcion"
-console.log(funcion.propiedad1)
+// function funcion(){
+//     console.log("Mensaje de la función")
+// }
+// funcion.propiedad1 = "Propiedad de la funcion"
+// console.log(funcion.propiedad1)
 // algunos propiedades propias de las funciones pueden ser sobreescritas pero otras no
-funcion.name = "qqqqq"
-console.log(funcion.name)
-funcion.apply="aaaa"
-console.log(funcion.apply)
+// funcion.name = "qqqqq"
+// console.log(funcion.name)
+// funcion.apply="aaaa"
+// console.log(funcion.apply)
+
+// Objetos this
+var nombre = 'AAAA'
+var apellido = 'BBBB'
+var persona = {
+    nombre : 'Fabrizio',
+    apellido : 'Condori',
+    imprimirDatos : function () {
+        //console.log(nombre+" "+apellido)
+        console.log(this.nombre+" "+this.apellido)
+    },
+    direccion : {
+        pais : 'Peru',
+        obtenerPais : function(){
+            //console.log(this)
+            //console.log('La dirección es '+this.pais)
+            var self = this
+            var nuevaDireccion = function(){
+                console.log(self.pais)
+            }
+            nuevaDireccion()
+        }
+    }
+}
+persona.imprimirDatos()
+persona.direccion.obtenerPais()
