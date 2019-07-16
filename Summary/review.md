@@ -132,3 +132,96 @@ var persona = {
 persona.imprimirDatos()
 persona.direccion.obtenerPais()
 ```
+En una función el, `this` se refiere al objeto global.
+## typeof y instanceof
+`typeof` retorna un String indicando que tipo del operando sin evaluarlo.
+```JavaScript
+console.log(typeof 1)       // number
+console.log(typeof "Texto") // string
+console.log(typeof true)    // boolean
+```
+`instanceOf` es útil cuando se necesite confirmar el tipo de objeto en tiempo de ejecución, lo que hace es verificar si un objeto en su cadena de prototipos contiene la propiedad `prototype` de un constructor.
+```JavaScript
+//Ejemplo 1
+function Animal(){
+    this.vivo = true
+}
+var perro = new Animal()
+console.log(perro instanceof Animal)    //true
+
+//Ejemplo 2
+function Persona(nombre){
+    this.nombre = nombre
+}
+var serVivo = {vive : true};
+Persona.prototype = serVivo;
+var persona1 = new Persona('Fabrizio')
+var persona2 = Object.create(serVivo);
+console.log(persona1 instanceof Persona)    //true
+console.log(persona2 instanceof Persona)    //true pero porqué?
+```
+En el último ejemplo el `console.log` indica un resultado `true`, pero ¿porqué?, sucede que el prototipo de `persona2` es `serVivo` pero el prototipo de la función constructor también es `serVivo`, por eso es verdadero.
+
+## Arreglos
+- .reverse()
+    ```JavaScript
+    var arreglo = [1,2,3,4]
+    arreglo.reverse()   // [4, 3, 2, 1]
+    ```
+- .map()
+    ```JavaScript
+    var arreglo = [1,2,3,4]
+    arreglo.map(function(elemento){return elemento*2})  //[2, 4, 6, 8]
+    ```
+- .join()
+    ```JavaScript
+    var arreglo = [1,2,3,4]
+    arreglo.join(" - ") //"1 - 2 - 3 - 4"
+    ```
+- .split()
+    ```JavaScript
+    arreglo = "1,2,3,4".split(",")  //["1", "2", "3", "4"]
+    ```
+- .push()
+    ```JavaScript
+    var arreglo = [1,2,3,4]
+    // retorna la nueva longitud del arreglo
+    arreglo.push(5) //5
+    ```
+- .unshift()
+    ```JavaScript
+    var arreglo = [1,2,3,4]
+    // retorna la nueva longitud del arreglo
+    arreglo.unshift(0)  //5
+    console.log(arreglo)    //[0, 1, 2, 3, 4]
+    ```
+- .shift(): Sirve para eliminar el primer elemento.
+    ```JavaScript
+    var arreglo = [1,2,3,4]
+    //retorna el elemento eliminado
+    arreglo.shift() //1
+    console.log(arreglo)    //[2, 3, 4]
+    ```
+- .toString()
+    ```JavaScript
+    var arreglo = [1,2,3,4]
+    arreglo.toString()  //"1,2,3,4"
+    ```
+- .pop()
+    ```JavaScript
+    var arreglo = [1,2,3,4]
+    //retorna el elemento eliminado
+    arreglo.pop()   //4
+    console.log(arreglo)    //[1, 2, 3]
+    ```
+- splice()
+    ```JavaScript
+    var arreglo = [1,2,3,4]
+    arreglo.splice(1,2,"2","3") //[2, 3]
+    console.log(arreglo)        //[1, "2", "3", 4]
+    ```
+- .slice()
+    ```JavaScript
+    var arreglo = [1,2,3,4]
+    arreglo.slice(0,3)  //[1, 2, 3]
+    ```
