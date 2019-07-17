@@ -225,3 +225,7 @@ En el último ejemplo el `console.log` indica un resultado `true`, pero ¿porqu�
     var arreglo = [1,2,3,4]
     arreglo.slice(0,3)  //[1, 2, 3]
     ```
+## Objeto `arguments`
+Las funciones en JavaScript tienen incorporadas un objeto llamado `arguments` ("argumentos" en español), este objeto contiene los argumentos que se pasan al invocar una función.   
+Lo curioso de este objeto es que no es un `array`, aunque es muy similar ya que no tiene ninguna de las propiedades de un array, excepto `length`
+**Nota:** No es posible usarlos en funciones flechas.

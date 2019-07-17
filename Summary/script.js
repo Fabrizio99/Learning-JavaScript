@@ -307,8 +307,60 @@
 // console.log(perro instanceof Animal)
 
 
-var arreglo = [1,2,3,4]
-console.log(arreglo)
-console.table(arreglo)
-console.log(arreglo[0])
+// var arreglo = [1,2,3,4]
+// console.log(arreglo)
+// console.table(arreglo)
+// console.log(arreglo[0])
 // console.log(arreglo[-1])
+
+// var arreglo = [
+//     1,
+//     "Texto",
+//     true,
+//     null,
+//     function(){
+//         console.log(this)
+//     }
+// ]
+
+// function funcion(a,b,c){
+//     console.log(arguments)
+//     if(arguments.length!==3){
+//         console.log("Se necesita 3 parámetros.")
+//         return;
+//     }
+//     console.log(a+b+c)
+// }
+// funcion(10,20,30,40)
+
+// function suma(){
+//     var suma=0
+//     for (let index = 0; index < arguments.length; index++) {
+//         suma+=arguments[index]
+//     }
+//     console.log(suma)
+// }
+// suma(1,2,3,4,5,6,7)
+
+// function funcion(){
+//     console.log(typeof arguments)
+//     var arregloArgumentos = arguments[1]
+//     console.log(arregloArgumentos)
+//     arregloArgumentos = "cambiado!!"
+//     console.log(arguments)
+// }
+// funcion(11,23,[1,2,3])
+
+function funcion(a,b,c){
+    console.log(b)
+    console.log(arguments)
+    arguments[1]=20
+    console.log(b)
+    console.log(arguments)
+    var dato = arguments
+    console.log(typeof arguments[0])
+    dato[0] = 10
+    console.log(a)
+    console.log(arguments)
+}
+funcion(1,2,3)
