@@ -218,10 +218,10 @@ Dirán, pero que carajos es esto, creanme que a mi me costo tambien entenderlo, 
 - El detalle es que no podemos usar la palabra reservada `extends`, ya que lo estamos haciendo en base a prototipos.
     Creo que la parte más complicada es esta:
     - Primero pensemos que al instanciar una clase, tenemos que pasarle los parámetros a la funcion constructor, en este caso en la función constructor Administrador, todos los datos que se reciban se almacenaran en `...args` (este es un parámetro rest, nos permite almacenar una cantidad indenfinida de datos en un array), pero como le pasamos esos datos almacenados a los atributos de Administado? como los atributos que tiene Administrador son los mismos que User, entonces haremos que cada objeto que se cree tomará forma de la funcion constructor User, pasandole como argumentos el parametro rest `args`. Practicamente todo lo explicado, se realiza en esta linea de código.
-    ````JavaScript
+    ```JavaScript
     User.apply(this,args)
     ```
 - Ahora si queremos heredar los método de un prototipo, tenemos que indicar que el prototipo de Administrador va a ser un objeto que se va a crear y que este nuevo objeto este basado en `User.prototype`. Esto es lo que hace:
-```JavaScript
-Administrador.prototype = Object.create(User.prototype)
-```
+    ```JavaScript
+    Administrador.prototype = Object.create(User.prototype)
+    ```
