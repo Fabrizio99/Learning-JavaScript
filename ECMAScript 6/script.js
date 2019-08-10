@@ -543,7 +543,50 @@
 // let set = new Set('asdas')
 // console.log(set)
 
-let items = new Set([1,2,4,5,3,5])
-function eliminarDuplicados(arreglo){
-    return [...new Set(arreglo)]
+// let items = new Set([1,2,4,5,3,5])
+// function eliminarDuplicados(arreglo){
+//     return [...new Set(arreglo)]
+// }
+// let item = new Set()
+// item.add(1)
+// item.add(2)
+// item.add(5)
+// item.add(3)
+// let entradas = item.entries()
+// console.log(entradas)
+
+// let mapa = new Map()
+// mapa.set('nombre','Fabrizio')
+// mapa.set('apellido','Condori')
+// mapa.set("edad")
+// mapa.set()
+// console.log(mapa)
+// console.log(mapa.size)
+// console.log(mapa.get("nombre"))
+// console.log(mapa.has('nombre'))
+// console.log(mapa.delete('nombre'))
+// console.log(mapa.has('nombre'))
+// console.log(mapa.get('nombre'))
+// console.log(mapa)
+// mapa.clear()
+// console.log(mapa)
+
+// let items = new Set('asdas')
+// console.log(items)
+let mapa = new Map([['a',1],['b',2]])
+
+mapa.forEach((value,key,map) => {
+    console.log(`${key}:${value}`)
+});
+
+for (const elements of mapa) {
+    console.log(elements[0]+' -> '+elements[1])
 }
+// let mapa = new Map([['pais','Peru'],['capital','Lima']])
+// console.log(mapa.get('capital'))
+// console.log(mapa.has('pais'))
+// console.log(mapa.has('idioma'))
+// mapa.delete('capital')
+// console.log(mapa.get('capital'))
+// mapa.clear()
+// console.log(mapa)

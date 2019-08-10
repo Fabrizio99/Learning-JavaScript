@@ -487,3 +487,49 @@ function eliminarDuplicados(arreglo){
 Creamos una función donde elimina elementos duplicados de un arreglo primero convirtiendolo en un set y retorna el set convertido en un arreglo.
 
 **Nota:** Existen los `WeakSet` que es un objeto que te permite almacenar y mantener solo **objetos** en una colección.
+## Map
+El objeto map permite almacenar pares clave/valor.
+```JavaScript
+// creamos el mapa con la funcion constructor Map
+let mapa = new Map()
+// añadimos datos pares con el método .set()
+mapa.set('nombre','Fabrizio')
+mapa.set('apellido','Condori')
+mapa.set("edad")
+
+// si no se indica los parámetros, ambos serán undefined
+console.log(mapa)       //Map(4) {"nombre" => "Fabrizio", "apellido" => "Condori", "edad" => undefined, undefined => undefined}
+```
+Podemos inicializar un mapa ingresando como parámetro en la función constructor `Map` un arreglo que contenga arreglos de longitud 2 (contengan la clave y el valor).
+```JavaScript
+let mapa = new Map([['a',1],['b',2]])
+console.log(mapa)       //Map(2) {"a" => 1, "b" => 2}
+```
+### Métodos
+```JavaScript
+let mapa = new Map([['pais','Peru'],['capital','Lima']])
+//.get() permite obtener el valor de un par a partir de su clave
+console.log(mapa.get('capital'))
+// .has() retorna un booleano indicando su existe esa clave
+console.log(mapa.has('pais'))
+console.log(mapa.has('idioma'))
+// .delete() permite eliminar un par indicando su clave
+mapa.delete('capital')
+console.log(mapa.get('capital'))
+// .clear() elimina todos los pares del mapa
+mapa.clear()
+console.log(mapa)
+```
+### Bucles
+```JavaScript
+let mapa = new Map([['a',1],['b',2]])
+// .foreach() ejecuta una funcion en cada iteracion del objeto map, el primer parámetro es el valor, el segundo es la clave y el ultimo hace referencia al mapa.
+mapa.forEach((value,key,map) => {
+    console.log(`${key}:${value}`)
+});
+
+// for...of retorna en cada iteración un array de [clave,valor]
+for (const elements of mapa) {
+    console.log(elements[0]+' -> '+elements[1])
+}
+```
