@@ -297,6 +297,7 @@
 // console.log(persona1)
 // persona1.getNombre()
 
+
 // const persona = {}
 // console.log(persona)
 // let dato = "nombre"
@@ -573,15 +574,15 @@
 
 // let items = new Set('asdas')
 // console.log(items)
-let mapa = new Map([['a',1],['b',2]])
+// let mapa = new Map([['a',1],['b',2]])
 
-mapa.forEach((value,key,map) => {
-    console.log(`${key}:${value}`)
-});
+// mapa.forEach((value,key,map) => {
+//     console.log(`${key}:${value}`)
+// });
 
-for (const elements of mapa) {
-    console.log(elements[0]+' -> '+elements[1])
-}
+// for (const elements of mapa) {
+//     console.log(elements[0]+' -> '+elements[1])
+// }
 // let mapa = new Map([['pais','Peru'],['capital','Lima']])
 // console.log(mapa.get('capital'))
 // console.log(mapa.has('pais'))
@@ -590,3 +591,275 @@ for (const elements of mapa) {
 // console.log(mapa.get('capital'))
 // mapa.clear()
 // console.log(mapa)
+
+
+
+// clases
+// class Persona{
+//     constructor(nombre){
+//         this.nombre = nombre
+//     }
+//     decirNombre(){
+//         console.log(this.nombre)
+//     }
+// }
+// const persona1 = new Persona('Fabrizio')
+// persona1.decirNombre()
+
+//clases como expresion
+// let Carro = class{
+//     constructor(placa,marca){
+//         this.km = 0
+//         this.marca = marca
+//         this.placa = placa
+//     }
+//     pedo(){
+        
+//     }
+// }
+// const carro1 = new Carro('12345','Audi')
+// carro1.pedo(1,2)
+
+// function crearClases(definicionClase){
+//     return new definicionClase()
+// }
+// let objeto = crearClases(class{
+//         constructor(){
+//             this.nombre = undefined
+//         }
+//         saludar(){
+//             console.log('Hola')
+//         }
+//     }
+// )
+// console.log(objeto)
+// objeto.saludar()
+
+
+
+// function etiqueta(a,...b){
+//     // console.log(a)
+//     // console.log(b)
+//     let mensaje = ""
+//     a.forEach((element,index) => {
+//         mensaje+=element+(b[index]||'')
+//     });
+//     console.log(mensaje)
+// }
+// let nombrePropiedad = "mostrarDatos2"
+// class Libro{
+//     constructor(nombre,autor,anio,codigo){
+//         this.nombre = nombre
+//         this.autor = autor
+//         this.anio = anio
+//         this.codigo = codigo
+//     }
+//     mostrarDatos(){
+//         etiqueta`Nombre : ${this.nombre}\nAutor: ${this.autor}\nAño: ${this.anio}\nCodigo BNP: ${this.codigo}`
+//     }
+//     [nombrePropiedad](){
+//         console.log(`Nombre: ${this.nombre} | Autor: ${this.autor}`)
+//     }
+//     static funcion(){
+//         console.log(typeof Libro)
+//     }
+// }
+// const libro1 = new Libro('Travesuras de la Niña Mala','Mario Vargas Llosa',2009,'ISO023')
+// libro1.mostrarDatos()
+// Libro.funcion()
+// libro1.mostrarDatos2()
+// libro1[nombrePropiedad]()
+
+
+// class Rectangulo{
+//     constructor(alto,largo){
+//         this.alto = alto
+//         this.largo = largo
+//     }
+//     getArea(){
+//         return this.alto*this.largo
+//     }
+    
+// }
+// class Cuadrado extends Rectangulo{
+//     constructor(lado){
+//         super(lado,lado)
+//     }
+// }
+// const figura1 = new Rectangulo(3,2)
+// console.log(figura1.getArea())
+// const figura2 = new Cuadrado(2)
+// console.log(figura2.getArea())
+
+
+
+//factory function
+// function circulo(radio){
+//     return{
+//         radio,
+//         dibujar(){
+//             console.log('dibujado')
+//         }
+//     }
+// }
+// const c1 = circulo(1)
+// console.log(c1)
+// c1.dibujar()
+
+// constructor function
+/*
+using the "new" operator happens three things:
+- create an empty object.
+- "this" is pointing to the new object.
+- the constructor function will return that object.
+*/
+// function Circulo2(radio){
+//     this.radio = radio
+//     this.dibujar = function(){
+//         console.log('dibujado')
+//     }
+// }
+// const c2 = new Circulo2(1)
+// console.log(c2)
+// c2.dibujar()
+// for (const key in c2) {
+//     if (c2.hasOwnProperty(key)) {
+//         console.log(key)
+//     }
+// }
+// const keys = Object.keys(c2)
+// console.log(keys)
+// if('radio' in c2){
+//     console.log('yes')
+// }
+
+// under the hood of constructor functions
+// const Circulo3 = new Function('radio',`this.radio = radio
+// this.dibujar = function(){
+//     console.log('dibujado')
+// }`)
+// const c3 = {}
+// Circulo3.call(c3,1)
+
+// primitive vs objects
+// let x = 10
+// function increase(x){
+//     x++
+// }
+// increase(x)
+// console.log(x)
+
+// let y = {
+//     value : 10
+// }
+// function increase2(y){
+//     y.value++
+// }
+// increase2(y)
+// console.log(y.value)
+
+// function Carro(marca,color){
+//     this.marca = marca
+//     this.color = color
+//     let identificador = 123456
+//     let funcionamientoCarro = function(){
+//         return 'funcionando'
+//     }
+//     Object.defineProperty(this,'funcionamiento',{
+//         get: function () {
+//             return funcionamientoCarro
+//         },
+//         set:function(valor){
+//             funcionamientoCarro =valor
+//         }
+//     })
+//     this.getIdentificador = function(){
+//         console.log(funcionamientoCarro())
+//         return identificador
+//     }
+// }
+// const carro1 = new Carro('Toyota','Verde')
+
+// function StopWatch(){
+//     let running = false
+//     this.duration = 0
+//     this.reset = function(){
+//         duration = 0
+//         running = false
+//     }
+//     let start = function(){
+//         startTime = new Date()
+//     }
+//     let stop = function(){
+//         endTime = new Date()
+//         this.duration = (endTime.getTime()-startTime.getTime())/1000;
+//     }
+//     Object.defineProperties(this,{
+//         'start':{
+//             get : function(){
+//                 console.log(running)
+//                 if(running)  throw new Error('Stopwatch has already started')
+//                 running = true
+//                 return start
+//             }
+//         },
+//         'stop':{
+//             get : function(){
+//                 if(!running)    throw new Error('Stopwatch is not started')
+//                 running = false
+//                 return stop
+//             }
+//         }
+//     })
+// }
+// const cnx = new StopWatch()
+
+class User{
+    constructor(name,email,password){
+        this.name = name
+        this.email = email
+        this.password = password
+    }
+    logIn(){
+        console.log(`${this.name} has logged in.`)
+    }
+    logOut(){
+        console.log(`${this.name} has logged out.`)
+    }
+}
+const user1 = new User('Fabrizio','avbar357159@gmail.com','a2ryd2rtdrx2')
+
+class Admin extends User{
+    constructor(name,email,password,code){
+        super(name,email,password)
+        this.code = code
+    }
+    eliminateUser(){
+        return 'Deleting a user'
+    }
+}
+const admin1 = new Admin('Alvaro','alvaro&carla@forever.com','sdb86qwgd3tv','code01')
+
+class shareholder extends Admin{
+    constructor(name,email,password,code,shverification){
+        super(name,email,password,code)
+        this.shverification = shverification
+    }
+    eliminateAdmin(){
+        console.log('Deleting an admin')
+    }
+    eliminateUser(){
+        return super.eliminateUser()+' by shareholder'
+    }
+    getResources(){
+        console.log('Getting resources from database')
+    }
+}
+const sh1 = new shareholder('Luisa','luisafr@gmail.com','hjbnu6tn67nt75r','code02','shad123')
+// function animal(name){
+//     this.name = name
+//     this.eat = function(){
+//         console.log('eating')
+//     }
+// }
+// const dog = new animal('a')

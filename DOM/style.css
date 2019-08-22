@@ -1,0 +1,18 @@
+body{
+    background: greenyellow;
+    padding-bottom: 100em;
+}
+.boton{
+    background: grey;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 0;
+    width: 10%;
+    border-radius: .25rem;
+    padding: .5rem .25rem;
+}
+input{
+    display: block;
+}
+[type="checkbox"]{
+    display: inline;
+}

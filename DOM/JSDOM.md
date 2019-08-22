@@ -6,7 +6,7 @@ Existen 3 tipos de estándar definidas por la W3C:
 - HTML DOM: modelo estándar para documentos HTML.
 
 ## HTML DOM
-Es un modelo de objetos estándar para HTML.
+Es un modelo de objetos estándar para HTML, no es parte de la especificacion de JavaScript sino es un web API.  
 Características:
 - Todos los elementos HTML son **objetos**.
 - Define las propiedades de los elementos HTML.
@@ -26,6 +26,7 @@ Un **método** es una acción que se puede realizar en los elementos HTML y una 
 Por ejemplo, `getElementById()` es un método que permite acceder a un elemento usando su id correspondiente y `innerHTML` es una propiedad que permite obtener y cambiar cualquier elemento HTML.
 ### Objeto Document
 El objeto **document** representa un objeto que contiene toda la página web, si deseamos acceder a un elemento del documento HTML debemos empezar accediendo al objeto document.
+Además, contiene a todos los objetos de la página web.
 ## Nodos
 Se refiere a cada punto e intersección que existe en el arbol del DOM. Un nodo no solo son los elementos del HTML, sino también los atributos y texto del elemento también son nodos.  
 El DOM es construido por un arbol conformado por nodos.
@@ -43,3 +44,6 @@ De los 12 tipos de nodos,  solo 4 son los más importantes:
 |ATTRIBUTE_NODE|2|
 |TEXT_NODE|3|
 |COMMENT_NODE|8|
+
+### childNodes 
+Propiedad que devuelve una coleccion de hijos nodes.

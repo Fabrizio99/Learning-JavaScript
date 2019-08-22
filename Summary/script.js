@@ -818,3 +818,19 @@ if(4>2){
     }
 }
 funcion()
+
+
+// json
+// localStorage.setItem('usuario','Fabrizio')
+// console.log(`nombre de usuario: ${localStorage.getItem('usuario')}`)
+// localStorage.removeItem('usuario')
+// localStorage.clear()
+
+// const persona = {
+//     nombre : 'Fabrizio',
+//     edad : 20
+// }
+// const personaJSON = JSON.stringify(persona)
+// localStorage.setItem('dataUser',personaJSON)
+// const data = JSON.parse(localStorage.getItem('dataUser'))
+// console.log(data)
