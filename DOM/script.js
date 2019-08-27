@@ -156,6 +156,7 @@ form.addEventListener('submit',(e)=>{
 // para radiobuttons y checkboxs, este evento ocurre cuando el estado checked ha sido cambiado
 const checkbox = document.getElementById('checkbox')
 checkbox.addEventListener('change',e=>{
+    console.log(e.target.checked);
     (e.target.checked)? console.log('El usuario desea recordar su contraseña') : console.log('El usuario NO desea recordar su contraseña');
 })
 const user = document.getElementById('usuario')
