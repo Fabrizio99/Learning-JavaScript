@@ -533,4 +533,3 @@ for (const elements of mapa) {
     console.log(elements[0]+' -> '+elements[1])
 }
 ```
-## Clases

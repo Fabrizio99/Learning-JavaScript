@@ -53,7 +53,7 @@
 // title.classList.remove('h1')
 // console.log(title)
 // // si una clase no existe lo agrega, de lo contrario lo elimina
-// title.classList.toggle('text')
+// title.classList.toggle('text ')
 // console.log(title)
 // title.classList.toggle('text')
 // console.log(title)

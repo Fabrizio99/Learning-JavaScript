@@ -9,6 +9,16 @@
 </head>
 <body>
     <h1>DOM</h1>
+    <template id="structure">
+        <h2></h2>
+        <p></p>
+    </template>
+    <section>
+        <ul>
+            <li><a href="https://www.google.com.pe">link 1</a></li>
+            <li><a href="www.youtube.com">link 2</a></li>
+        </ul>
+    </section>
     <section>
         <h2>Multimedia</h2>
         <div class="content-video">
@@ -58,6 +68,46 @@
             </div>
             <p>dssd</p>
         </div>
+    </section>
+    <section>
+        <h2>Transversing</h2>
+        <div id="parent">
+            <div class="child">Hijo 1</div>
+            <div class="child" id="son-2">Hijo 2
+                <div class="grandson">Nieto 1</div>
+                <div class="grandson" id="grandson-2">Nieto 2</div>
+                <div class="grandson">Nieto 3</div>
+            </div>
+            <div class="child">Hijo 3</div>
+            <div class="child">Hijo 4</div>
+        </div>
+    </section>
+    <section>
+        <h2>Ejercicio usando insertBefore</h2>
+        <article id="article">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit distinctio nisi natus quaerat, minima nemo aliquid voluptatem, odit nulla eveniet voluptatum accusantium odio inventore quia iusto nihil vero quidem ratione?</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit distinctio nisi natus quaerat, minima nemo aliquid voluptatem, odit nulla eveniet voluptatum accusantium odio inventore quia iusto nihil vero quidem ratione?</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit distinctio nisi natus quaerat, minima nemo aliquid voluptatem, odit nulla eveniet voluptatum accusantium odio inventore quia iusto nihil vero quidem ratione?</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit distinctio nisi natus quaerat, minima nemo aliquid voluptatem, odit nulla eveniet voluptatum accusantium odio inventore quia iusto nihil vero quidem ratione?</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit distinctio nisi natus quaerat, minima nemo aliquid voluptatem, odit nulla eveniet voluptatum accusantium odio inventore quia iusto nihil vero quidem ratione?</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit distinctio nisi natus quaerat, minima nemo aliquid voluptatem, odit nulla eveniet voluptatum accusantium odio inventore quia iusto nihil vero quidem ratione?</p>
+        </article>
+    </section>
+    <section>
+        <h2>insertAdjacent</h2>
+        <div class="adjacent" id="adj">
+            <p>Contenido</p>
+        </div>
+    </section>
+    <section id="subjects">
+        <h2>Materias de este semestre (createDocumentFragment)</h2>
+    </section>
+    <section id="temp">
+        <h2>Etiqueta template</h2>
+    </section>
+    <section id="clock">
+        <h2>Clock</h2>
+        <p></p>
     </section>
     <script src="script2.1.js"></script>
 </body>

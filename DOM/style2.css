@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    padding: 0;
 }
 .content-video{
     min-width: 400px;
@@ -30,4 +31,34 @@ img{
     border: 2px solid transparent;
     width: 25%;
     box-sizing: border-box;
+}
+#artc{
+    display: block;
+    width: 30%;
+    padding: 10px;
+    box-sizing: border-box;
+    background: yellow;
+    margin: auto;
+    text-align: center;
+}
+.adjacent{
+    margin: 5px;
+    border: 1px solid red;
+    text-align: center;
+}
+#clock{
+    height: min-content;
+}
+#clock h2{
+    margin: 0;
+}
+#clock p{
+    background: rgb(110, 104, 104);
+    border: 5px solid rgb(163, 150, 75);
+    font-size: 30px;
+    color: rgb(192, 189, 189);
+    width: min-content;
+    padding: 5px;
+    text-align: center;
+    margin: 2px auto;
 }

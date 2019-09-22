@@ -47,3 +47,113 @@ De los 12 tipos de nodos,  solo 4 son los más importantes:
 
 ### childNodes 
 Propiedad que devuelve una coleccion de hijos nodes.
+
+## Eventos
+### Eventos multimedia
+- `play()` permite reproducir el video
+- `pause()` permite pausar el video
+```JavaScript
+//Ejemplo
+const video = document.getElementById('video'), // hace referencia la etiqueta video con el id 'video'
+playButton = document.getElementById('play'),
+pauseButton = document.getElementById('pause');
+
+playButton.addEventListener('click',()=>{video.play()})
+pauseButton.addEventListener('click',()=>video.pause())
+```
+## Manipulando el DOM
+## Nodos
+###  Nodos hijos
+- `.childNodes` retorna todos los nodos hijos.
+    ```JavaScript
+    const parent = document.getElementById('parent')
+    console.log(parent.childNodes)
+    ```
+- `.children` retorna todos los nodo elementos hijos del elemento en cuestion.
+    ```JavaScript
+    const parent = document.getElementById('parent')
+    console.log(parent.children)
+    ```
+- `.firstChild` retorna su primer hijo
+    ```JavaScript
+    const parent = document.getElementById('parent')
+    console.log(parent.firstChild)
+    ```
+- `.firstElementChild` retorna su primer hijo de tipo elemento
+    ```JavaScript
+    const parent = document.getElementById('parent')
+    console.log(parent.firstElementChild)
+    ```
+- `.lastChild` retorna el ultimo nodo hijo
+    ```JavaScript
+    const parent = document.getElementById('parent')
+    console.log(parent.lastChild)
+    ```
+- `.lastElementChild`retorna el ultimo hijo de tipo elemento
+    ```JavaScript
+    const parent = document.getElementById('parent')
+    console.log(parent.lastElementChild)
+    ```
+- `.hasChildNodes()` retorna un valor booleano indicando si posee nodos hijos.
+    ```JavaScript
+    const parent = document.getElementById('parent')
+    console.log(parent.hasChildNodes())
+    ```
+### Nodos Padres
+- `.parentElement` retorna su elemento padre.
+    ```JavaScript
+    const grandSon2 = document.getElementById('grandson-2')
+    console.log(grandSon2.parentElement)
+    ```
+### Nodos Hermanos
+- `.nextSibling` retorna su nodo hermano siguiente
+- `.nextElementSibling` retorna su nodo hermano de tipo elemento siguiente.
+- `.previousSibling` retorna su nodo hermano siguiente
+- `.previousElementSibling` retorna su nodo hermano de tipo elemento siguiente.
+    ```JavaScript
+    const grandSon2 = document.getElementById('grandson-2')
+    console.log(grandSon2.parentElement)
+    console.log(grandSon2.nextSibling)
+    console.log(grandSon2.nextElementSibling)
+    console.log(grandSon2.previousSibling)
+    console.log(grandSon2.previousElementSibling)
+    ```
+## Insertar elementos
+- `appendChild()` inserta el elemento al final de todos sus hijos.
+    ```JavaScript
+    const parent = document.getElementById('parent')
+    const newElement = document.createElement('h3')
+    newElement.textContent = 'Fui insertado'
+    parent.appendChild(newElement)
+    ```
+- `insertBefore(newElement,nextElement)` metodo que nos permite agregrar un elemento antes de uno de los elementos hijos del elemento original.
+
+- `insertAdjacentElement` permite agregar un elemento con cuatro valores: `beforebegin`,`afterbegin`,`beforeend` y `afterend`. 
+También existe `insertAdjacentHTML` que realiza lo mismo pero inserta un elemento HTML y `insertAdjacentText` que inserta un texto.
+
+    ```JavaScript
+    const element = document.getElementById('adj')
+    const newElement = document.createElement('div')
+    newElement.textContent = 'insertado desde javascript'
+    newElement.classList.add('adjacent')
+    element.insertAdjacentElement('afterend',newElement)
+    ```
+- `replaceChild(newElement,oldElement)` reemplaza un elemento.
+    ```JavaScript
+    const element = document.getElementById('adj');
+    const newElement = document.createElement('div')
+    newElement.textContent = 'insertado desde javascript'
+    newElement.classList.add('adjacent')
+    element.replaceChild(newElement,element.children[0])
+    ```
+### JQuery like methods
+Métodos similares a la sintaxis y funcionalidad de JQuery, no todos los navegadores lo soportan (IE, Opera mini). En este [link](https://caniuse.com/#search=jquery%20like) puede encontrar mas información.
+- `.before()` posee la misma función que `beforebegin`.
+- `.after()` posee la misma función que `afterend`.
+- `.prepend()` posee la misma función que `afterbegin`.
+- `.append()` posee la misma función que `beforeend`.
+- `nodeElement.replaceWith(newElement)` posee la misma función que `replaceChild`.
+## Clonar elementos
+Con el método `.cloneNode(boolean value)` permite clonar un elemento, este recibe como parámetro un argumento booleano, `true` si desea clonar con todos los hijos.
+## Eliminar elementos
+El método `.remove()` permite eliminar al elemento.

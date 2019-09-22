@@ -1,0 +1,17 @@
+.body{
+    margin: 0;
+    padding: 0;
+}
+section{
+    border: 1px solid black;
+    margin: 3px;
+}
+.box-style{
+    background-color: grey;
+    padding: 2px;
+    margin: 5px;
+}
+.box-fontStyle{
+    color: white;
+    font-size: 30px
+}
